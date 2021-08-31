@@ -4,18 +4,12 @@ import com.tareas.dto.TareaDTO;
 import com.tareas.model.Tarea;
 import com.tareas.repository.TareasRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
-@Controller
+@RestController
 public class TareasController {
 
     public TareasController(TareasRepository repo) {
@@ -25,10 +19,8 @@ public class TareasController {
     @Autowired
     private TareasRepository repo;
 
-    @PostMapping(name = "/crear", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseBody
-    public String crear(@RequestBody TareaDTO request) {
-
+    @PostMapping("/crear")
+    public String crear(@RequestBody @Valid TareaDTO request) {
         Tarea t = new Tarea();
         t.setIdTarea(request.getIdTarea());
         t.setDescripcion(request.getDescripcion());
@@ -40,13 +32,11 @@ public class TareasController {
     }
 
     @PostMapping("/listar")
-    @ResponseBody
     public List<Tarea> listarTareas() {
         return repo.findAll();
     }
 
     @PostMapping("/eliminar")
-    @ResponseBody
     public String eliminarTarea(@RequestBody TareaDTO request) {
         Tarea t = new Tarea();
         t.setIdTarea(request.getIdTarea());
@@ -58,7 +48,6 @@ public class TareasController {
     }
 
     @PutMapping("/editar")
-    @ResponseBody
     public String editarTarea(@RequestBody TareaDTO request) {
         Tarea t = new Tarea();
         t.setIdTarea(request.getIdTarea());
