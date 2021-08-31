@@ -10,3 +10,16 @@ CREATE DATABASE tareas
     LC_CTYPE = 'Spanish_Chile.1252'
     TABLESPACE = pg_default
     CONNECTION LIMIT = -1;
+
+    -- Table: public.tarea
+
+    -- DROP TABLE public.tarea;
+
+    CREATE TABLE IF NOT EXISTS public.tarea
+    (
+        id_tarea integer NOT NULL,
+        descripcion character varying(50) COLLATE pg_catalog."default",
+        fecha_creacion timestamp without time zone,
+        vigencia boolean,
+        CONSTRAINT tarea_pkey PRIMARY KEY (id_tarea)
+    )
