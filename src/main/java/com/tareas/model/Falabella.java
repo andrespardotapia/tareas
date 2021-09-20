@@ -7,9 +7,7 @@ import lombok.ToString;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import java.math.BigDecimal;
 
 
@@ -21,6 +19,8 @@ public class Falabella {
 
     @Id
     @NotNull
+    @Min(value = 1000000)
+    @Max(value = 99999999)
     private int sku;
 
     @NotBlank(message = "no debe ser vacio")
@@ -38,12 +38,16 @@ public class Falabella {
     private String size;
 
     @Column(name = "price")
+    @Min(value = 1)
+    @Max(value = 99999999)
     private Double price;
 
     @Column(name = "principalImage")
+    @NotBlank(message = "no debe ser vacio")
     private String principalImage;
 
     @Column(name = "otherImages")
+    @NotBlank(message = "no debe ser vacio")
     private String otherImages;
 
 }

@@ -27,8 +27,6 @@ class TareasControllerTest {
 	@Test
 	void crearTarea() {
 		Falabella tarea = new Falabella();
-
-
 		tarea.setSku(8406270);
 		tarea.setName(" 500 Zapatilla Urbana Mujer");
 		tarea.setBrand("New Balance");
