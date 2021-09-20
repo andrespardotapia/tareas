@@ -23,7 +23,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"idTarea\" : 3,\r\n    \"descripcion\" : \"tercer tarea\",\r\n    \"fechaCreacion\" : \"2021-09-18\",\r\n    \"vigencia\" : true\r\n}"
+					"raw": "{\r\n    \"sku\" : 8406270,\r\n    \"name\" : \" 500 Zapatilla Urbana Mujer\",\r\n    \"brand\" : \"New Balance\", \r\n    \"price\": 42990,\r\n    \"size\": 37,\r\n     \"principalImage\" : \"https://falabella.scene7.com/is/image/Falabella/8406270_1\",\r\n      \"otherImages\" : \"https://falabella.scene7.com/is/image/Falabella/8406270_1\"\r\n}\r\n"
 				},
 				"url": {
 					"raw": "http://localhost:8080/crear",
@@ -40,43 +40,9 @@
 			"response": []
 		},
 		{
-			"name": "editar",
-			"request": {
-				"method": "PUT",
-				"header": [
-					{
-						"key": "Accept",
-						"value": "application/json",
-						"type": "text"
-					},
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"idTarea\" : 2,\r\n    \"descripcion\" : \"segunda tarea EDITADA\",\r\n    \"fechaCreacion\" : \"2021-09-18\",\r\n    \"vigencia\" : true\r\n}"
-				},
-				"url": {
-					"raw": "http://localhost:8080/editar",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"editar"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "eliminar",
 			"request": {
-				"method": "POST",
+				"method": "DELETE",
 				"header": [
 					{
 						"key": "Accept",
@@ -91,7 +57,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"idTarea\" : 1,\r\n    \"descripcion\" : \"primera tarea\",\r\n    \"fechaCreacion\" : \"2021-09-18\",\r\n    \"vigencia\" : true\r\n}"
+					"raw": "{\r\n    \"sku\" : 8406270,\r\n    \"name\" : \" 500 Zapatilla Urbana Mujer\",\r\n    \"brand\" : \"New Balance\", \r\n    \"price\": 42990,\r\n    \"size\": 37,\r\n     \"principalImage\" : \"https://falabella.scene7.com/is/image/Falabella/8406270_1\",\r\n      \"otherImages\" : \"https://falabella.scene7.com/is/image/Falabella/8406270_1\"\r\n}\r\n"
 				},
 				"url": {
 					"raw": "http://localhost:8080/eliminar",
@@ -102,40 +68,6 @@
 					"port": "8080",
 					"path": [
 						"eliminar"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "listar",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Accept",
-						"value": "application/json",
-						"type": "text"
-					},
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": {
-					"raw": "http://localhost:8080/listar",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"listar"
 					]
 				}
 			},

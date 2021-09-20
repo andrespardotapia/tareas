@@ -1,26 +1,24 @@
 package controller;
 
-import com.tareas.controller.TareasController;
-import com.tareas.dto.TareaDTO;
-import com.tareas.model.Tarea;
-import com.tareas.repository.TareasRepository;
+import com.tareas.controller.FalabellaController;
+import com.tareas.model.Falabella;
+import com.tareas.repository.FalabellaRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.math.BigDecimal;
+
 
 class TareasControllerTest {
 
 
 	@Autowired
-	TareasRepository repo = Mockito.mock(TareasRepository.class);
+	FalabellaRepository repo = Mockito.mock(FalabellaRepository.class);
 
 	@Autowired
-	TareasController tareasController = new TareasController(repo);
+	FalabellaController tareasController = new FalabellaController(repo);
 
 
 	void setUp() {
@@ -28,60 +26,43 @@ class TareasControllerTest {
 
 	@Test
 	void crearTarea() {
-		Tarea tarea = new Tarea();
+		Falabella tarea = new Falabella();
 
-		TareaDTO tareaDTO = new TareaDTO();
-		tareaDTO.setIdTarea(1);
-		tareaDTO.setDescripcion("descripcion");
-		tareaDTO.setFechaCreacion(new Date());
-		tareaDTO.setVigencia(true);
+
+		tarea.setSku(8406270);
+		tarea.setName(" 500 Zapatilla Urbana Mujer");
+		tarea.setBrand("New Balance");
+		tarea.setSize("37");
+		tarea.setPrice(Double.valueOf(42990l));
+		tarea.setPrincipalImage("https://falabella.scene7.com/is/image/Falabella/8406270_1");
+		tarea.setOtherImages("https://falabella.scene7.com/is/image/Falabella/8406270_1");
 
 		Mockito.when(repo.save(tarea)).thenReturn(tarea);
-		tareasController.crear(tareaDTO);
+		tareasController.crear(tarea);
 		Assertions.assertEquals("Tarea creada", "Tarea creada");
 
 	}
 
-	@Test
-	void listarTarea() {
-		Tarea tarea = new Tarea();
-		tarea.setIdTarea(1);
-		tarea.setDescripcion("descripcion");
-		tarea.setFechaCreacion(new Date());
-		tarea.setVigencia(true);
-		List<Tarea> tareaList = new ArrayList<>();
-		tareaList.add(tarea);
-		Mockito.when(repo.findAll()).thenReturn(tareaList);
-		tareasController.listarTareas();
-		Assertions.assertNotNull(tareaList);
-	}
+
 
 	@Test
 	void eliminarTarea() {
-		Tarea tarea = new Tarea();
+		Falabella tarea = new Falabella();
 
-		TareaDTO tareaDTO = new TareaDTO();
-		tareaDTO.setIdTarea(1);
-		tareaDTO.setDescripcion("descripcion");
-		tareaDTO.setFechaCreacion(new Date());
-		tareaDTO.setVigencia(true);
 
-		tareasController.eliminarTarea(tareaDTO);
-		Assertions.assertNotNull("Tarea " + tareaDTO.getIdTarea() + " eliminada");
-		Assertions.assertEquals("Tarea 1 eliminada", "Tarea " + tareaDTO.getIdTarea() + " eliminada");
+		tarea.setSku(8406270);
+		tarea.setName(" 500 Zapatilla Urbana Mujer");
+		tarea.setBrand("New Balance");
+		tarea.setSize("37");
+		tarea.setPrice(Double.valueOf(42990l));
+		tarea.setPrincipalImage("https://falabella.scene7.com/is/image/Falabella/8406270_1");
+		tarea.setOtherImages("https://falabella.scene7.com/is/image/Falabella/8406270_1");
+
+		tareasController.eliminarTarea(tarea);
+		Assertions.assertNotNull("Tarea " + tarea.getSku() + " eliminada");
+		Assertions.assertEquals("Tarea 1 eliminada", "Tarea " + tarea.getSku() + " eliminada");
 	}
 
-	@Test
-	void editarTarea() {
-		Tarea tarea = new Tarea();
-		TareaDTO tareaDTO = new TareaDTO();
-		tareaDTO.setIdTarea(1);
-		tareaDTO.setDescripcion("descripcion");
-		tareaDTO.setFechaCreacion(new Date());
-		tareaDTO.setVigencia(true);
-		Mockito.when(repo.save(tarea)).thenReturn(tarea);
-		tareasController.eliminarTarea(tareaDTO);
-		Assertions.assertEquals("Tarea editada", "Tarea editada");
-	}
+
 
 }
