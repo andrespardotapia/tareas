@@ -14,26 +14,31 @@ import javax.validation.Valid;
 @RestController
 public class FalabellaController {
 
-        public FalabellaController(FalabellaRepository repo) {
-            this.repo = repo;
-        }
+    public FalabellaController(FalabellaRepository repo) {
+        this.repo = repo;
+    }
 
-        @Autowired
-        private FalabellaRepository repo;
+    @Autowired
+    private FalabellaRepository repo;
 
-        @PostMapping("/crear")
-        public String crear(@RequestBody @Valid Falabella model) {
-
+    @PostMapping("/crear")
+    public String crear(@RequestBody @Valid Falabella model) {
+        try {
             repo.save(model);
-
-            return "Tarea creada";
+            return "Producto creada";
+        } catch (Exception e) {
+            throw e;
         }
+    }
 
-        @DeleteMapping("/eliminar")
-        public String eliminarTarea(@RequestBody @Valid Falabella model) {
-
+    @DeleteMapping("/eliminar/{sku}")
+    public String eliminarTarea(@RequestBody @Valid Falabella model) {
+        try {
             repo.delete(model);
-            return "Tarea " + model.getSku() + " eliminada";
+            return "Producto " + model.getSku() + " eliminada";
+        } catch (Exception e) {
+            throw e;
         }
+    }
 
 }

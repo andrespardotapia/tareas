@@ -39,7 +39,7 @@ class TareasControllerTest {
 
 		Mockito.when(repo.save(tarea)).thenReturn(tarea);
 		tareasController.crear(tarea);
-		Assertions.assertEquals("Tarea creada", "Tarea creada");
+		Assertions.assertEquals("Producto creada", "Producto creada");
 
 	}
 
@@ -59,8 +59,8 @@ class TareasControllerTest {
 		tarea.setOtherImages("https://falabella.scene7.com/is/image/Falabella/8406270_1");
 
 		tareasController.eliminarTarea(tarea);
-		Assertions.assertNotNull("Tarea " + tarea.getSku() + " eliminada");
-		Assertions.assertEquals("Tarea 1 eliminada", "Tarea " + tarea.getSku() + " eliminada");
+		Assertions.assertNotNull("Producto " + tarea.getSku() + " eliminada");
+		Assertions.assertEquals("Producto 1 eliminada", "Producto " + tarea.getSku() + " eliminada");
 	}
 
 
