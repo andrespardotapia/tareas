@@ -21,7 +21,6 @@ public class Falabella {
 
     @Id
     @NotNull
-    @Size(min=1000000, max=99999999)
     private int sku;
 
     @NotBlank(message = "no debe ser vacio")
@@ -39,7 +38,6 @@ public class Falabella {
     private String size;
 
     @Column(name = "price")
-    @Size(min=1, max=99999999)
     private Double price;
 
     @Column(name = "principalImage")
